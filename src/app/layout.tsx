@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Oswald } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { site } from "@/lib/site";
 
@@ -49,7 +50,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${oswald.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-white">{children}</body>
+      <body className="flex min-h-full flex-col bg-white">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
